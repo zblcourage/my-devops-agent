@@ -1,6 +1,6 @@
 FROM kubespheredev/builder-base:v3.1.0
 
-ENV NODE_VERSION 10.16.3
+ENV NODE_VERSION 14.21.3
 
 RUN ARCH= && uArch="$(uname -m)" \
   && case "${uArch##*-}" in \
@@ -33,6 +33,7 @@ RUN ARCH= && uArch="$(uname -m)" \
 
 RUN npm -g config set user root
 RUN npm i -g watch-cli vsce typescript
+RUN npm install -g pnpm
 
 # Yarn
 ENV YARN_VERSION 1.16.0
